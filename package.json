@@ -34,7 +34,8 @@
   },
   "homepage": "https://github.com/cmcrobotics/aframe-watcher-bun#readme",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag-version-prefix": "v"
   },
   "files": [
     "src",
