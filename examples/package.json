@@ -1,0 +1,11 @@
+{
+  "name": "aframe-bun-example",
+  "version": "1.0.0",
+  "description": "Example A-Frame project using aframe-watcher-bun",
+  "scripts": {
+    "start": "bun run server.ts"
+  },
+  "dependencies": {
+    "aframe": "^1.6.0"
+  }
+}
