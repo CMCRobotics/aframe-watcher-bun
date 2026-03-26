@@ -10,6 +10,7 @@
   "scripts": {
     "start": "bun run src/index.ts",
     "test": "bun test",
+    "build:inspector": "cd ../aframe-inspector && bun install && bun run dist",
     "build:binary": "bun build src/index.ts --compile --outfile aframe-watcher"
   },
   "keywords": [

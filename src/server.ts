@@ -41,6 +41,16 @@ export function createServer(options: ServerOptions = {}) {
         }
       }
 
+      // Serve A-Frame Inspector
+      if (url.pathname === "/aframe-inspector.min.js") {
+        try {
+          const path = "../../aframe-inspector/dist/aframe-inspector.min.js";
+          return new Response(Bun.file(path));
+        } catch (e) {
+          return new Response("Inspector not found", { status: 404 });
+        }
+      }
+
       // Root / Health check
       if (url.pathname === "/") {
         return new Response("A-Frame Bun Watcher is running!");
