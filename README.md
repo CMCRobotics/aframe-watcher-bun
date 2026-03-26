@@ -1,4 +1,4 @@
-# aframe-watcher-bun
+# @cmcrobotics/aframe-watcher-bun
 
 A modern, high-performance companion watch server for the [A-Frame Inspector](https://github.com/aframevr/aframe-inspector), built with [Bun](https://bun.sh/).
 
@@ -14,7 +14,7 @@ This project is a modernization of the original `aframe-watcher`, designed for b
 ## Installation
 
 ```bash
-bun install aframe-watcher-bun
+bun install @cmcrobotics/aframe-watcher-bun
 ```
 
 ## Usage
@@ -24,19 +24,19 @@ bun install aframe-watcher-bun
 Run the watcher in your project directory:
 
 ```bash
-bunx aframe-watcher-bun
+bunx @cmcrobotics/aframe-watcher-bun
 ```
 
 Or with custom options:
 
 ```bash
-bunx aframe-watcher-bun --port=3000 src/**/*.html
+bunx @cmcrobotics/aframe-watcher-bun --port=3000 src/**/*.html
 ```
 
 Or install it globally:
 
 ```bash
-bun install -g aframe-watcher-bun
+bun install -g @cmcrobotics/aframe-watcher-bun
 aframe-watcher-bun --port=51234
 ```
 
@@ -45,7 +45,7 @@ aframe-watcher-bun --port=51234
 Integrate the watcher into your existing Bun server:
 
 ```typescript
-import { createServer } from "aframe-watcher-bun";
+import { createServer } from "@cmcrobotics/aframe-watcher-bun";
 
 const server = createServer({
   port: 51234,

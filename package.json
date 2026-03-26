@@ -1,5 +1,5 @@
 {
-  "name": "aframe-watcher-bun",
+  "name": "@cmcrobotics/aframe-watcher-bun",
   "version": "1.0.0",
   "description": "A modern, high-performance companion watch server for the A-Frame Inspector, built with Bun.",
   "main": "src/index.ts",
