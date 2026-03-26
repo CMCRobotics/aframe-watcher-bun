@@ -70,6 +70,15 @@ bun build src/index.ts --compile --outfile aframe-watcher
 bun test
 ```
 
+## Examples
+
+To run the provided example project:
+
+```bash
+bun run examples/server.ts
+```
+Then visit `http://localhost:3000` to see the A-Frame scene and test the inspector.
+
 ## Credits
 
 This project is a modernized version of:
