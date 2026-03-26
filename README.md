@@ -79,6 +79,28 @@ bun run examples/server.ts
 ```
 Then visit `http://localhost:3000` to see the A-Frame scene and test the inspector.
 
+For more details on the example project and building it as a standalone executable, see the [Examples README](./examples/README.md).
+
+## Development
+
+### Maintaining the Vendored A-Frame Inspector
+
+This project vendors a pre-built version of the [A-Frame Inspector](https://github.com/aframevr/aframe-inspector) in `vendor/aframe-inspector.min.js`. This ensures that the watcher can be distributed and committed without external dependencies.
+
+To update the vendored inspector from a local checkout of the `aframe-inspector` repository:
+
+1. Ensure `aframe-inspector` is checked out as a sibling directory to this project (`../aframe-inspector`).
+2. Run the update script:
+   ```bash
+   bun run build:inspector
+   ```
+   This will install dependencies in the inspector project, build it, and copy the resulting `aframe-inspector.min.js` into the `vendor/` directory.
+
+Alternatively, if you already have a built inspector and just want to re-copy it:
+```bash
+bun run vendor:inspector
+```
+
 ## Credits
 
 This project is a modernized version of:

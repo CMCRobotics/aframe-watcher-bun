@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+export const defaultIndexHtml = `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,16 +17,16 @@
     <!-- To override the default Aframe Inspector, you must reference it as a component -->
     <a-scene inspector="url: /aframe-inspector.min.js">
       <a-box id="my-box" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere id="my-sphere" geometry="radius: 0.8" position="0 1.57483 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-sphere id="my-sphere" geometry="radius: 0.8" position="0 1.22576 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder id="my-cylinder" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       <a-plane id="ground" position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
       <a-sky id="background" color="#ECECEC"></a-sky>
       
       <!-- Instructions -->
       <a-entity position="-2 3 -4">
-        <a-text value="1. Press CTRL + ALT + I to open Inspector\n2. Modify an object (e.g., move the box)\n3. Click the Floppy Disk icon to Save back to disk!" 
+        <a-text value="1. Press CTRL + ALT + I to open Inspector\\n2. Modify an object (e.g., move the box)\\n3. Click the Floppy Disk icon to Save back to disk!" 
                 color="black" width="4"></a-text>
       </a-entity>
     </a-scene>
   </body>
-</html>
+</html>`;

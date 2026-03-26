@@ -10,8 +10,10 @@
   "scripts": {
     "start": "bun run src/index.ts",
     "test": "bun test",
-    "build:inspector": "cd ../aframe-inspector && bun install && bun run dist",
-    "build:binary": "bun build src/index.ts --compile --outfile aframe-watcher"
+    "vendor:inspector": "mkdir -p vendor && cp ../aframe-inspector/dist/aframe-inspector.min.js vendor/",
+    "build:inspector": "cd ../aframe-inspector && bun install && bun run dist && cd - && bun run vendor:inspector",
+    "build:binary": "bun build src/index.ts --compile --outfile aframe-watcher",
+    "build:example": "bun build examples/server.ts --compile --outfile example-server"
   },
   "keywords": [
     "aframe",
