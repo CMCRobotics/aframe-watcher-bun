@@ -33,6 +33,13 @@ Or with custom options:
 bunx aframe-watcher-bun --port=3000 src/**/*.html
 ```
 
+Or install it globally:
+
+```bash
+bun install -g aframe-watcher-bun
+aframe-watcher-bun --port=51234
+```
+
 ### Library
 
 Integrate the watcher into your existing Bun server:
@@ -61,7 +68,7 @@ The A-Frame Inspector (running in your browser) sends component changes via POST
 To create a self-contained binary:
 
 ```bash
-bun build src/index.ts --compile --outfile aframe-watcher
+bun build src/cli.ts --compile --outfile aframe-watcher
 ```
 
 ## Testing
