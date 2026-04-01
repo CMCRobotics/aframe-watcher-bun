@@ -1,12 +1,14 @@
 {
-  "name": "bun-template-aframe-watcher",
+  "name": "create-aframe-watcher",
   "version": "1.0.0",
-  "description": "Template for A-Frame project with Bun watcher persistence",
+  "description": "Create Template for A-Frame project with Bun watcher persistence",
   "scripts": {
-    "start": "bun run server.ts"
+    "dev": "bun run server.ts",
+    "compile": "bun build server.ts --compile --target=bun-linux-x64-baseline --outfile aframe-watcher-server"
   },
   "dependencies": {
     "aframe": "1.7.1",
-    "aframe-watcher-bun": "latest"
+    "aframe-inspector": "github:CMCRobotics/aframe-inspector",
+    "aframe-watcher-bun": "github:CMCRobotics/aframe-watcher-bun"
   }
 }

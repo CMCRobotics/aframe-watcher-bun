@@ -7,10 +7,9 @@ This is a standalone template for creating A-Frame projects with Bun persistence
 You can use this template with `bun create`:
 
 ```bash
-bun create CMCRobotics/aframe-watcher-bun/examples/bun-template my-vr-project
+bun create aframe-watcher my-vr-project
 cd my-vr-project
-bun install
-bun start
+bun dev
 ```
 
 ## How it works
@@ -21,9 +20,21 @@ bun start
 
 ## Usage
 
-1. Run `bun start`.
+1. Run `bun dev`.
 2. Open `http://localhost:3000` in your browser.
 3. Press `CTRL + ALT + I` to open the Inspector.
 4. Modify any entity (position, rotation, etc.).
 5. Click the **Floppy Disk** 💾 icon in the top left of the Inspector.
 6. Check your `index.html` file—the changes are saved!
+
+## Self-contained executable
+
+Bun can compile the application into a standalone, self-contained executable :
+
+```bash
+bun compile
+```
+
+will produce an executable ``aframe-watcher-server`` that you can run without installing Bun.
+
+Consult [Bun's upstream documentation](https://bun.com/docs/bundler/executables) for more details.

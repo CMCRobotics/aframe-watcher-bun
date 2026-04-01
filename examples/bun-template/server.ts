@@ -1,5 +1,9 @@
 import { sync, type Changes } from "aframe-watcher-bun";
-import { resolve } from "path";
+// @ts-ignore
+import aframeInspector from "./node_modules/aframe-inspector/dist/aframe-inspector.min.js" with { type: "text" };
+// @ts-ignore
+import aframeMin from "./node_modules/aframe/dist/aframe-master.min.js" with { type: "text" };
+import { name as projectName } from "./package.json";
 
 const port = 3000;
 
@@ -17,10 +21,10 @@ const defaultIndexHtml = `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A-Frame Bun Watcher Template</title>
+    <title>${projectName}</title>
     <meta name="description" content="Modernized A-Frame project with Bun Watcher support.">
-    <!-- Main A-Frame Library (Served from CDN or local) -->
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <!-- Main A-Frame Library (Served locally) -->
+    <script src="/aframe.min.js"></script>
     
     <!-- Integration with our Bun Watcher and Patched Inspector -->
     <script>
@@ -29,8 +33,8 @@ const defaultIndexHtml = `<!DOCTYPE html>
     </script>
   </head>
   <body>
-    <!-- Use the built-in inspector, or provide a URL to a custom one -->
-    <a-scene>
+    <!-- To override the default Aframe Inspector, you must reference it as a component -->
+    <a-scene inspector="url: /aframe-inspector.min.js">
       <a-box id="my-box" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere id="my-sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder id="my-cylinder" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
@@ -49,7 +53,7 @@ const defaultIndexHtml = `<!DOCTYPE html>
 if (isDefault) {
   // If the default index.html does not exist, extract it from the import
   if (!(await file.exists())) {
-    console.log(`[template] Local ${examplePath} not found. Creating default...`);
+    console.log(`[${projectName}] Local ${examplePath} not found. Creating default...`);
     await Bun.write(examplePath, defaultIndexHtml);
   }
 } else {
@@ -60,8 +64,8 @@ if (isDefault) {
   }
 }
 
-console.log(`[template] Starting A-Frame Bun Watcher on http://localhost:${port}...`);
-console.log(`[template] Targeting file: ${examplePath}`);
+console.log(`[${projectName}] Starting A-Frame Bun Watcher on http://localhost:${port}...`);
+console.log(`[${projectName}] Targeting file: ${examplePath}`);
 
 const server = Bun.serve({
   port,
@@ -76,7 +80,21 @@ const server = Bun.serve({
       });
     }
 
-    // 2. Handle Save Endpoint
+    // 2. Serve A-Frame library (Bundled)
+    if (url.pathname === "/aframe.min.js") {
+      return new Response(aframeMin as any, {
+        headers: { "Content-Type": "application/javascript" }
+      });
+    }
+
+    // 3. Serve A-Frame Inspector (Bundled)
+    if (url.pathname === "/aframe-inspector.min.js") {
+      return new Response(aframeInspector as any, {
+        headers: { "Content-Type": "application/javascript" }
+      });
+    }
+
+    // 4. Handle Save Endpoint
     if (req.method === "POST" && url.pathname === "/save") {
       try {
         const changes = (await req.json()) as Changes;
@@ -90,7 +108,7 @@ const server = Bun.serve({
       }
     }
 
-    // 3. CORS Preflight
+    // 5. CORS Preflight
     if (req.method === "OPTIONS") {
       return new Response(null, {
         headers: {
@@ -105,4 +123,4 @@ const server = Bun.serve({
   },
 });
 
-console.log(`[template] Template ready at ${server.url}`);
+console.log(`[${projectName}] ready at ${server.url}`);
