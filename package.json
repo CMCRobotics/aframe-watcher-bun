@@ -12,7 +12,7 @@
     "test": "bun test",
     "vendor:inspector": "mkdir -p vendor && bun run scripts/download-inspector.ts",
     "build:binary": "bun build src/cli.ts --compile --outfile aframe-watcher",
-    "build:example": "bun build examples/server.ts --compile --outfile example-server"
+    "build:example": "cd examples/simple && bun install && cd ../.. && bun build examples/simple/server.ts --compile --outfile aframe-watcher-bun-simple-example"
   },
   "keywords": [
     "aframe",

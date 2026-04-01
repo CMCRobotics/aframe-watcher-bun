@@ -32,5 +32,5 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # Finder (MacOS) folder config
 .DS_Store
-example-server
-examples/index.html
+aframe-watcher-bun-simple-example
+examples/simple/index.html

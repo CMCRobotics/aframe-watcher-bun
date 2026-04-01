@@ -1,7 +1,7 @@
-import { sync, type Changes } from "../src/watcher";
+import { sync, type Changes } from "../../src/watcher";
 import { defaultIndexHtml } from "./default-index";
 // @ts-ignore
-import aframeInspector from "../vendor/aframe-inspector.min.js" with { type: "text" };
+import aframeInspector from "../../vendor/aframe-inspector.min.js" with { type: "text" };
 // @ts-ignore
 import aframeMin from "./node_modules/aframe/dist/aframe-master.min.js" with { type: "text" };
 
