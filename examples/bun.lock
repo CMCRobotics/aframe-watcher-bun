@@ -5,7 +5,7 @@
     "": {
       "name": "aframe-bun-example",
       "dependencies": {
-        "aframe": "^1.6.0",
+        "aframe": "1.7.1",
       },
     },
   },

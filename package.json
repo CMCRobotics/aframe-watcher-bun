@@ -10,8 +10,7 @@
   "scripts": {
     "start": "bun run src/cli.ts",
     "test": "bun test",
-    "vendor:inspector": "mkdir -p vendor && cp ../aframe-inspector/dist/aframe-inspector.min.js vendor/",
-    "build:inspector": "cd ../aframe-inspector && bun install && bun run dist && cd - && bun run vendor:inspector",
+    "vendor:inspector": "mkdir -p vendor && bun run scripts/download-inspector.ts",
     "build:binary": "bun build src/cli.ts --compile --outfile aframe-watcher",
     "build:example": "bun build examples/server.ts --compile --outfile example-server"
   },
@@ -45,5 +44,8 @@
   ],
   "dependencies": {
     "@types/bun": "^1.3.11"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
   }
 }
