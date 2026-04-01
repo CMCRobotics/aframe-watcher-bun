@@ -1,0 +1,12 @@
+{
+  "name": "bun-template-aframe-watcher",
+  "version": "1.0.0",
+  "description": "Template for A-Frame project with Bun watcher persistence",
+  "scripts": {
+    "start": "bun run server.ts"
+  },
+  "dependencies": {
+    "aframe": "1.7.1",
+    "aframe-watcher-bun": "latest"
+  }
+}
