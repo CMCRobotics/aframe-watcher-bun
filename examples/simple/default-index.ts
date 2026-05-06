@@ -10,7 +10,7 @@ export const defaultIndexHtml = `<!DOCTYPE html>
     <!-- Integration with our Bun Watcher and Patched Inspector -->
     <script>
       // 1. Point the inspector to our Bun watcher endpoint on the same server
-      window.AFRAME_WATCHER_URL = "/save";
+      window.AFRAME_INSPECTOR_CONFIG = { saveEndpoint: "/save"};
     </script>
   </head>
   <body>
