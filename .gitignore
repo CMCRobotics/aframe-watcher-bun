@@ -34,3 +34,6 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 .DS_Store
 aframe-watcher-bun-simple-example
 examples/simple/index.html
+
+aframe-watcher
+example-server
